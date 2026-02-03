@@ -29,6 +29,10 @@ body {
   display: none;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 .potato {
   font-size: 3rem;
   line-height: 1;

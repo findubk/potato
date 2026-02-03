@@ -92,8 +92,8 @@ const startHearts = () => {
 
 yesBtn.addEventListener("click", () => {
   messageEl.textContent = "Love you potato 🥔";
-  appEl.classList.add("hidden");
-  celebrationEl.classList.remove("hidden");
+  appEl.hidden = true;
+  celebrationEl.hidden = false;
   startHearts();
 });
 
