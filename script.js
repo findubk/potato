@@ -1,6 +1,8 @@
 const messageEl = document.getElementById("message");
 const yesBtn = document.getElementById("yes");
 const noBtn = document.getElementById("no");
+const appEl = document.querySelector(".app");
+const celebrationEl = document.getElementById("celebration");
 const heartsLayer = document.getElementById("hearts-layer");
 const noReplies = [
   "Try again",
@@ -90,6 +92,8 @@ const startHearts = () => {
 
 yesBtn.addEventListener("click", () => {
   messageEl.textContent = "Love you potato 🥔";
+  appEl.classList.add("hidden");
+  celebrationEl.classList.remove("hidden");
   startHearts();
 });
 
