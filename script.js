@@ -4,6 +4,8 @@ const noBtn = document.getElementById("no");
 const appEl = document.querySelector(".app");
 const celebrationEl = document.getElementById("celebration");
 const heartsLayer = document.getElementById("hearts-layer");
+
+const emojis = ["😂", "🥺", "💖", "😏", "😍", "✨", "💘", "😌", "🫶", "🔥", "😇", "💞", "🤭", "💫"];
 const noReplies = [
   "Try again",
   "Seriously?",
@@ -57,6 +59,70 @@ const noReplies = [
   "Okay, now say yes",
 ];
 
+const openers = [
+  "Nice try",
+  "Bold move",
+  "Cute attempt",
+  "Romantic error",
+  "Uh oh",
+  "Plot twist",
+  "Fun fact",
+  "Breaking news",
+  "Tiny reminder",
+  "Friendly notice",
+  "Suspicious choice",
+  "Gentle nudge",
+  "Soft rejection",
+  "Love update",
+  "Emotional alert"
+];
+const middles = [
+  "but destiny says yes",
+  "my heart disagrees",
+  "that was the wrong button",
+  "love demands a retry",
+  "the universe blinked",
+  "romance.exe crashed",
+  "your finger slipped",
+  "this feels personal",
+  "I refuse to accept this",
+  "we both know better",
+  "chemistry detected",
+  "the vibes say otherwise",
+  "the stars are screaming",
+  "that answer was shy",
+  "your future self says yes"
+];
+const endings = [
+  "try again",
+  "press yes",
+  "say yes already",
+  "don’t fight fate",
+  "be brave",
+  "follow your heart",
+  "you know the drill",
+  "love wins",
+  "fix it pls",
+  "one more tap",
+  "choose happiness",
+  "romance mode on",
+  "this is flirting",
+  "accept the love",
+  "do the right thing"
+];
+
+const moreReplies = Array.from({ length: 300 }, (_, i) => {
+  const e1 = emojis[i % emojis.length];
+  const e2 = emojis[(i + 3) % emojis.length];
+  const opener = openers[i % openers.length];
+  const middle = middles[i % middles.length];
+  const ending = endings[i % endings.length];
+
+  return `${opener} ${e1} ${middle}… ${ending} ${e2}`;
+});
+
+const allReplies = [...noReplies, ...moreReplies];
+
 let noClickCount = 0;
 let heartsIntervalId = null;
 
@@ -99,6 +165,6 @@ yesBtn.addEventListener("click", () => {
 
 noBtn.addEventListener("click", () => {
   messageEl.textContent = "Hmm... I think you meant yes.";
-  noBtn.textContent = noReplies[noClickCount % noReplies.length];
+  noBtn.textContent = allReplies[noClickCount % allReplies.length];
   noClickCount += 1;
 });
